@@ -1,0 +1,43 @@
+﻿@model english.ViewModel.LoginViewModel
+
+@{
+    ViewData["Title"] = "Вход";
+}
+
+
+
+<link href="~/css/login.css" rel="stylesheet">
+
+
+
+<div class="header">
+    <a class="logo" href="/Home/Index">
+        @*<img src="~/img/bilim-logo-blue.png" alt="BilimOnline">*@
+        <!-- Bilim Online -->
+    </a>
+    <a href="#" class="">Главная</a>
+    <a href="#" class="">Лайфхак</a>
+
+    <a href="/Account/Profil" class="login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+        <!-- <a href="#">Кіру / Тіркелу</a> -->
+    </a>
+</div>
+<div class="content">
+    <form class="vhod" asp-action="Login">
+        <h2>Жүйеде болсаңыз</h2>
+        <input type="text" asp-for="PhoneNumber" placeholder="Телефон номері" required>
+        <input type="password" asp-for="Password" placeholder="Құпиясөз" required>
+
+        <div class="valid" asp-validation-summary="ModelOnly"></div>
+
+        <button type="submit">Жүйеге кіру</button>
+        <a href="/Account/ForgotPassword">Пароль ұмытып калдым</a>
+    </form>
+    <div class="vhod">
+        <h2>Online English жүйесіне тіркелу</h2>
+        <p>Жалғастыру үшін жүйеге тіркелу міндетті(логин және құпиясөзге ие болу). Бұл тегін.</p>
+        <a href="/Account/Register">Тіркелу</a>
+    </div>
+</div>

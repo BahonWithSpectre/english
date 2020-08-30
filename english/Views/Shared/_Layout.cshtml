@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English</title>
+
+    <link rel="stylesheet" href="~/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="~/slick/slick-theme.css" />
+    <script src="~/js/jQuery.js"></script>
+
+</head>
+<body>
+
+    <div class="wrap">
+
+        @RenderBody()
+
+        <div class="footer-wrap">
+            <div class="footer const-container">
+                <div class="footer-items">
+                    <div class="fleft">
+                        <a class="logo" href="index.html">
+                            <!-- <img src="img/logo.png" alt="BeautyOnline"> -->
+                        </a>
+                        <div class="contact">
+                            <i class="fa fa-mobile"></i>
+                            <div class="contact-phone">
+                                <a href="tel:#">+7 700 700 70 70</a>
+                                <a href="mailto:#">+7 700 707 77 77</a>
+                            </div>
+                        </div>
+                        <div class="social">
+                            <a href="whatsapp">
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                            <a href="insta">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fcenter">
+                        <h3>Реквизиттер</h3>
+                        <span>ЖК "Beauty Online"</span>
+                        <span>Телефон: +7 700 707 77 77</span>
+                        <span>Э-адрес: info@beautyonline.kz</span>
+                        <span>Мекен-жайы: Қазақстан р., Алматы қ-сы, KosheName к-сі, <br> HomeName - үй. OfficeName 212.</span>
+                        <span>БИН: 909090909090</span>
+                    </div>
+                    <div class="fright">
+                        <a href="#">Авторлық құқық жөнінде ескерту</a>
+                        <a href="#">Міндеттер</a>
+                        <a href="#">Реквизиттер</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    © beautyonline.kz, 2020. Барлық құқықтар қорғалған.
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.burger').hover(function () {
+                $('.swipe-menu').toggleClass('active-menu')
+            })
+            $('.close').click(function () {
+                $('.swipe-menu').removeClass('active-menu')
+            })
+        });
+    </script>
+
+</body>
+</html>

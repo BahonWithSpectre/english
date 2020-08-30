@@ -1,0 +1,45 @@
+﻿@model english.ViewModel.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+
+<link href="~/css/register.css" rel="stylesheet">
+
+
+<div class="header">
+    <a class="logo" href="/Home/Index">
+        @*<img src="~/img/bilim-logo-blue.png" alt="BilimOnline">*@
+        <!-- Bilim Online -->
+    </a>
+    <a href="/Account/Profil" class="login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+        <!-- <a href="#">Кіру / Тіркелу</a> -->
+    </a>
+    <!-- <div class="menu"></div> -->
+</div>
+<div class="content">
+    <form class="vhod" asp-action="Register">
+        <h2>Жүйеге тіркелу</h2>
+        <input type="text" asp-for="FirstName" placeholder="Аты" required>
+        <input type="text" asp-for="LastName" placeholder="Тегі" required>
+
+        <input type="text" asp-for="Email" placeholder="Email" required>
+        <span asp-validation-for="Email" style="color: red"></span>
+
+        <input type="text" asp-for="PhoneNumber" placeholder="Телефон" required>
+        <span asp-validation-for="PhoneNumber" style="color: red"></span>
+
+        <input type="password" asp-for="Password" placeholder="Құпиясөз" required>
+        <span asp-validation-for="Password" style="color: red"></span>
+
+        <input type="password" asp-for="PasswordConfirm" placeholder="Құпиясөзді қайталау" required>
+        <span asp-validation-for="PasswordConfirm" style="color: red"></span>
+
+        <div asp-validation-summary="ModelOnly" style="color: red"></div>
+
+        <button type="submit">Тіркелу</button>
+    </form>
+</div>
