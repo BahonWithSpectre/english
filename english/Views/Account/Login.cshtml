@@ -1,23 +1,15 @@
-﻿@model english.ViewModel.LoginViewModel
-
+@model english.ViewModel.LoginViewModel
 @{
-    ViewData["Title"] = "Вход";
+    ViewData["Title"] = "Кіру";
 }
 
-
-
 <link href="~/css/login.css" rel="stylesheet">
-
-
 
 <div class="header">
     <a class="logo" href="/Home/Index">
         @*<img src="~/img/bilim-logo-blue.png" alt="BilimOnline">*@
         <!-- Bilim Online -->
     </a>
-    <a href="#" class="">Главная</a>
-    <a href="#" class="">Лайфхак</a>
-
     <a href="/Account/Profil" class="login">
         <span>Жеке кабинет</span>
         <i class="fa fa-user-o"></i>
@@ -33,7 +25,7 @@
         <div class="valid" asp-validation-summary="ModelOnly"></div>
 
         <button type="submit">Жүйеге кіру</button>
-        <a href="/Account/ForgotPassword">Пароль ұмытып калдым</a>
+        <p><a href="/Account/ForgotPassword">Пароль ұмытып калдым</a></p>
     </form>
     <div class="vhod">
         <h2>Online English жүйесіне тіркелу</h2>

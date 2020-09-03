@@ -38,24 +38,43 @@ namespace english.Controllers
             return View(list);
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
 
+        public IActionResult AllKurs()
+        {
+            var list = db.Kurs.ToList();
+
+            return View(list);
+        }
+
+        [HttpPost]
+        public IActionResult AllKurs(string cat1, string cat2, string cat3)
+        {
+            var list = db.Kurs.ToList();
+
+            if (cat1 != "qw")
+            {
+                return Content("String !=");
+            }
+
+            return View(list);
+        }
+
+
+
+
+        public IActionResult Kurs(int? Id)
+        {
+            if (Id != null)
+            {
+                ViewBag.Videos = db.KursVideos.Where(x => x.KursId == Id).ToList();
+
+                var kurs = db.Kurs.FirstOrDefault(p => p.Id == Id);
+                return View(kurs);
+            }
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
 
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
