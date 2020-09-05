@@ -27,7 +27,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--main-color);
+    color: white;
     font-family: PTSans;
     font-size: 16px;
 }
@@ -36,7 +36,7 @@
    background-color: #fff;
    user-select: none;
    position: relative;
-   background-color: var(--white-color);
+   background-color: white;
 }
 .header, .content > *, .footer {
    padding: 0 10%;
@@ -58,32 +58,32 @@
     top: 0;
     z-index: 100;
     /*    background-color: var(--main-color);*/
-    background-color: rgba(46,118,250, 0.9);
-    box-shadow: 0 1px 10px var(--main-color);
+    background-color: white;
+    box-shadow: 0 1px 10px var(--backDark);
     transition: 0.3s;
 }
 .fix-header > .logo {
-    background-image: url(../img/bilim-logo-white.png) !important;
+    background-image: url(../img/elogo.png) !important;
 }
 /*.fix-header > .logo > img {
     filter: brightness(100);
 }*/
 .fix-header > .nav > a, .fix-header > .go-back > *{
-   color: #fff;
+   color: var(--backDark);
 }
 .fix-header > .nav > a:hover, .fix-header > .go-back > a:hover{
-   color: var(--pink-color);
+   color: var(--button);
 }
 .fix-header > .nav > a::before{
-   background-color: var(--pink-color);
+   background-color: var(--button);
 }
 .fix-header > .login > *{
-   color: #fff;
+   color: var(--backDark);
 }
 .logo{
    width: 130px;
    height: 100%;
-   background-image: url(../img/bilim-logo-blue.png);
+   background-image: url(../img/elogo.png);
    background-repeat: no-repeat;
    background-size: contain;
    background-position-y: center;
@@ -101,15 +101,17 @@
    padding: 5px;
    transition: 0.2s;
    position: relative;
-   color: var(--main-color);
+   color: white;
 }
 .go-back > a{
    margin: 0;
    font-weight: bold;
-   /* font-size: 20px; */
+}
+.go-back > i{
+   color: white;
 }
 .nav > a:hover{
-   color: var(--brown-color);
+   color: var(--button);
 }
 .nav > a:before{
    content: "";
@@ -119,7 +121,7 @@
    position: absolute;
    bottom: 0;
    right: 5%;
-   background-color: var(--brown-color);
+   background-color: var(--button);
    transition: 0.3s;
 }
 .nav > a:hover:before{
@@ -127,10 +129,10 @@
    left: 5%;
 }
 .fix-active {
-    color: var(--brown-color) !important;
+    color: white !important;
 }
 .fix-header .fix-active {
-    color: #fff !important;
+    color: var(--backDark) !important;
 }
 .fix-active::before{
    width: 90% !important;
@@ -139,12 +141,12 @@
 .login{
    text-decoration: none;
 }
-/*.login > span, .login > i{
-   color: var(--brown-color);
-}*/
+.login > *{
+   color: white;
+}
 .login:hover > span{
    transition: 0.3s;
-   color: var(--main-color);
+   color: var(--button);
 }
 
 /* ---------MOB-MENU------- */
@@ -245,7 +247,7 @@
    width: 100%;
    padding-top: 50px;
    padding-bottom: 50px;
-   background-color: var(--white-color);
+   background-color: var(--backDark);
 }
 .footer-items{
    width: 100%;
@@ -299,16 +301,16 @@
    line-height: 32px;
    font-size: 18px;
    background: transparent;
-   color: var(--grey-color);
-   border: 1px solid var(--grey-color);
+   color: white;
+   border: 1px solid white;
    border-radius: 50%;
    transition: 0.3s;
 }
 .social > a i.fa-telegram{
    font-size: 32px;
-   background-color: var(--grey-color);
+   background-color: white;
    color: white;
-   border: 1px solid var(--grey-color)
+   border: 1px solid white;
 }
 .social > a:hover i{
    color: var(--white-color);
