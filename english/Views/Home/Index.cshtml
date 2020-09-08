@@ -10,12 +10,11 @@
 <div class="swipe-menu">
     <div class="close">
         <span></span>
-        <!-- <i class="fa fa-close"></i> -->
     </div>
     <a href="#" class="main-nav fix-active">Главная</a>
 
     <a href="#" class="course-nav">Курсы</a>
-    <a href="/Home/LifeHack" class="">Лайфхаки</a>
+    <a href="#" class="">Лайфхаки</a>
     <a href="#" class="more-nav">Рейтинги</a>
     <a href="#" class="about-nav">Контакты</a>
     <a href="/Account/Profil" class="swipe-login">
@@ -26,24 +25,22 @@
 <div class="header-wrap">
     <div class="header const-container">
         <div class="logo">
-            <!-- @*<img src="~/img/bilim-logo-blue.png" alt="BilimOnline">*@ -->
-            <!-- Bilim Online -->
         </div>
         <div class="nav">
-               <a href="#" class="main-nav fix-active">Главная</a>
-                <a href="#" class="course-nav">Курсы</a>
-                <a href="/Home/LifeHack" class="">Лайфхак</a>
-                <a href="#" class="more-nav">Рейтинги</a>
-                <a href="#" class="about-nav">Контакты</a>
-            </div>
+            <a href="#" class="main-nav fix-active">Главная</a>
+            <a href="/Home/LifeHack" class="about-nav">Лайфхаки</a>
+            <a href="#" class="course-nav">Курсы</a>
+            <a href="#" class="more-nav">Рейтинги</a>
+            <a href="#">Контакты</a>
+        </div>
             <div class="login">
                 <a href="/Account/Profil" class="login">
                     <span>Вход</span>
                     <i class="fa fa-user-o"></i>
                 </a>
                 <select>
-                    <option>KZ</option>
                     <option>RU</option>
+                    <option>KZ</option>
                 </select>
             </div>
 
@@ -104,28 +101,24 @@
                 <span href="#" class="const-btn">Улучшить уровень английского</span>
             </div>
         </div>
-        <div id="courses" class="courses-wrap">
+        <div id="about" class="courses-wrap">
             <div class="courses const-container">
-                <h2 class="const-h2">Курсы школы</h2>
+                <h2 class="const-h2">Лайфхаки</h2>
                 <div class="course-items">
-                    @foreach (var c in Model)
+                    @foreach (var c in ViewBag.LifeHack)
                     {
                         <div class="course-item">
                             <div class="course-img">
-                                <img src="~/kurs/@c.PhotoUrl">
+                                <img src="~/lifehack/@c.PhotoUrl">
                             </div>
                             <div class="course-text">
-                                <h2>@c.Name</h2>
-                                <p>@c.Info</p>
-                                <span class="price">
-                                    <span>@c.Price</span>тг
-                                </span>
-                                <a href="/Home/Kurs/@c.Id" class="const-btn">Записаться</a>
+                                <h2>@c.Title</h2>
+                                <a href="#" class="const-btn">Смотреть</a>
                             </div>
                         </div>
                     }
                 </div>
-                <a href="~/Home/AllKurs" class="const-btn">Все курсы</a>
+                <a href="~/Home/LifeHack" class="const-btn">Все лайфхаки</a>
             </div>
         </div>
         <div class="counts-wrap">
@@ -150,6 +143,30 @@
                     <h3>Студентов</h3>
                     <p>закончили обучение</p>
                 </div>
+            </div>
+        </div>
+        <div id="courses" class="courses-wrap" style="background-color: var(--pink-color);">
+            <div class="courses const-container">
+                <h2 class="const-h2">Курсы школы</h2>
+                <div class="course-items">
+                    @foreach (var c in Model)
+                    {
+                        <div class="course-item">
+                            <div class="course-img">
+                                <img src="~/kurs/@c.PhotoUrl">
+                            </div>
+                            <div class="course-text">
+                                <h2>@c.Name</h2>
+                                <p>@c.Info</p>
+                                <span class="price">
+                                    <span>@c.Price</span>тг
+                                </span>
+                                <a href="/Home/Kurs/@c.Id" class="const-btn">Узнать больше</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <a href="~/Home/AllKurs" class="const-btn">Все курсы</a>
             </div>
         </div>
         <div id="about" class="about-wrap">
@@ -237,8 +254,8 @@
 
     <script src="~/js/visitor.js"></script>
     <script type="text/javascript" src="~/slick/slick.min.js"></script>
-    <script>$(document).ready(function () {
-
+    <script>
+        $(document).ready(function () {
             $('.about-slider').slick({
                 dots: false,
                 infinite: true,
@@ -261,4 +278,5 @@
                     $('.course-nav').addClass('fix-active');
                 }
             });
-        })</script>
+        })
+    </script>

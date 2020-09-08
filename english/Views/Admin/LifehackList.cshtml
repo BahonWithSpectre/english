@@ -1,0 +1,37 @@
+﻿@model IEnumerable<english.DbFolder.Lifehack>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "LifeHackList";
+}
+
+<link href="~/css/kursEdit.css" rel="stylesheet">
+
+<style>
+    .h1 {
+        font-size: 24px;
+        font-family: PTSans-Bold;
+        margin-top: 15px;
+    }
+</style>
+<div class="content">
+    <div class="kurs-videos">
+        <h3 class="h1">Лайфхаки</h3>
+        <div class="video-titles">
+            <a href="/Admin/AddLifehack" class="add-video" title="Добавить новый лайфхак">
+                <span>+</span>
+            </a>
+            @foreach (var c in Model)
+            {
+                <div class="video-title">
+                    <div class="baner">
+                        <img src="~/lifehack/@c.PhotoUrl">
+                    </div>
+                    <div class="title-text">
+                        <h3>@c.Title</h3>
+                    </div>
+                    <a href="/Admin/EditLifehack/@c.Id">Редактировать</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -207,6 +207,9 @@
    color: var(--grey-color);
    margin-right: 10px;
 }
+.course-text > .const-btn{
+    margin-bottom: 5px;
+}
 .price{
    font-size: 20px;
 }
@@ -218,8 +221,10 @@
    font-family: PTSansBold;
    margin-right: 5px;
 }
-.course-text > .const-btn{
-   width: 100%;
+.course-text > .const-btn {
+    width: 100%;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
 
 .courses > .const-btn {

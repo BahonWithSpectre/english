@@ -1,0 +1,57 @@
+﻿@model english.DbFolder.Lifehack
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "EditLifehack";
+}
+
+<link href="~/css/kursEdit.css" rel="stylesheet">
+
+<style>
+    .h1 {
+        font-size: 24px;
+        font-family: PTSans-Bold;
+        margin-bottom: 15px;
+    }
+</style>
+<div class="content">
+    <form asp-action="EditLifehack" class="create" enctype="multipart/form-data">
+        <h1 class="h1">Редактировать лайфхак</h1>
+        <div class="form-blocks">
+            <div class="form-block">
+                <input asp-for="Id" type="hidden" value="@Model.Id">
+                <label for="title">Лайфхак:</label>
+                <input asp-for="Title" id="title" type="text" value="@Model.Title" required>
+            </div>
+            <div class="form-block">
+                <label for="video-url">Ссылка на видео (url: https://...):</label>
+                <input asp-for="VideoUrl" id="video-url" type="text" value="@Model.VideoUrl" required>
+            </div>
+            <div class="form-block">
+                <label for="photo">Баннер(фото: .jpg, .png):</label>
+                <input id="photo" onchange="readURL(this);" name="PhotoUrl" type="file" accept="jpg/png">
+                <div class="img-block">
+                    <img id="banner" src="~/lifehack/@Model.PhotoUrl">
+                </div>
+            </div>
+        </div>
+        <div class="btn-block">
+            <a href="/Admin/LifehackList">Отменить</a>
+            <a href="/Admin/DeleteLifehack/@Model.Id">Удалить лайфхак</a>
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#banner')
+                    .attr('src', e.target.result)
+                    .width('300px')
+                    .height('200px');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }</script>
+

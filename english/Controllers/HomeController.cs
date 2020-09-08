@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using english.Models;
 using english.DbFolder;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace english.Controllers
 {
@@ -25,23 +26,23 @@ namespace english.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.LifeHack = db.Lifehacks.Take(3);
             var kurs = db.Kurs.Take(6);
-
             return View(kurs);
         }
 
 
-        public IActionResult LifeHack()
+        public async Task<IActionResult> LifeHack()
         {
-            var list = db.Lifehacks.ToList();
+            var list = await db.Lifehacks.ToListAsync();
 
             return View(list);
         }
 
 
-        public IActionResult AllKurs()
+        public async Task<IActionResult> AllKurs()
         {
-            var list = db.Kurs.ToList();
+            var list = await db.Kurs.ToListAsync();
 
             return View(list);
         }

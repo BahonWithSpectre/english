@@ -1,138 +1,72 @@
 ﻿@model IEnumerable<english.DbFolder.Lifehack>
-
 @{
     ViewData["Title"] = "LifeHack";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link href="~/css/index.css" rel="stylesheet">
 
-<link href="~/css/life/index.css" rel="stylesheet">
 
 <div class="swipe-menu">
     <div class="close">
         <span></span>
-        <!-- <i class="fa fa-close"></i> -->
     </div>
-    <a href="/home/index" class="main-nav fix-active">Главная</a>
-
-    <a href="#" class="course-nav">Курсы</a>
-    <a href="/Home/LifeHack" class="">Лайфхак</a>
-    <a href="#" class="more-nav">Рейтинги</a>
-    <a href="#" class="about-nav">Контакты</a>
+    <a href="/Home/Index">Главная</a>
+    <a href="/Home/AllKurs">Все курсы</a>
+    <a href="#" class="fix-active">Лайфхаки</a>
     <a href="/Account/Profil" class="swipe-login">
-        <span>Личный кабинет</span>
+        <span>Жеке кабинет</span>
         <i class="fa fa-user-o"></i>
     </a>
 </div>
+<style>
+    .header-wrap {
+        background-color: var(--backDark);
+    }
+
+    .fix-header-wrap {
+        background-color: white;
+    }
+</style>
 <div class="header-wrap">
     <div class="header const-container">
         <div class="logo">
-            <!-- @*<img src="~/img/bilim-logo-blue.png" alt="BilimOnline">*@ -->
-            <!-- Bilim Online -->
         </div>
         <div class="nav">
-            <a href="/home/index" class="main-nav fix-active">Главная</a>
-
-            <a href="#" class="course-nav">Курсы</a>
-            <a href="/Home/LifeHack" class="">Лайфхак</a>
-            <a href="#" class="more-nav">Рейтинги</a>
-            <a href="#" class="about-nav">Контакты</a>
+            <a href="/Home/Index">Главная</a>
+            <a href="/Home/AllKurs">Все курсы</a>
+            <a href="#" class="fix-active">Лайфхаки</a>
         </div>
-        <div class="login">
-            <a href="/Account/Profil" class="login-a">
-                <span>Вход</span>
-                <i class="fa fa-user-o"></i>
-
-            </a>
-            <select>
-                <option>KZ</option>
-                <option>RU</option>
-            </select>
-        </div>
-
-
+        <a href="/Account/Profil" class="login">
+            <span>Жеке кабинет</span>
+            <i class="fa fa-user-o"></i>
+        </a>
         <div class="burger">
             <span></span>
         </div>
     </div>
 </div>
 
-
 <div class="content">
-    <div id="courses" class="courses">
-        <h2 style="color: #9702ad !important">LifeHack - видео</h2>
-        <div class="course-items">
-            <a href="#" class="course-item">
-                <div class="course-img">
-                    <img src="~/img/course-item.jpg">
-                </div>
-                <div class="course-text">
-                    <h2>
-                        Видео такырыбы Видео такырыбы Видео
-                    </h2>
-                </div>
-            </a>
-            <a href="#" class="course-item">
-                <div class="course-img">
-                    <img src="~/img/course-item.jpg">
-                </div>
-                <div class="course-text">
-                    <h2>
-                        Видео такырыбы
-                    </h2>
-                </div>
-            </a>
-            <a href="#" class="course-item">
-                <div class="course-img">
-                    <img src="~/img/course-item.jpg">
-                </div>
-                <div class="course-text">
-                    <h2>
-                        Видео такырыбы
-                    </h2>
-                </div>
-            </a>
-            <a href="#" class="course-item">
-                <div class="course-img">
-                    <img src="~/img/course-item.jpg">
-                </div>
-                <div class="course-text">
-                    <h2>
-                        Видео такырыбы
-                    </h2>
-                </div>
-            </a>
-            <a href="#" class="course-item">
-                <div class="course-img">
-                    <img src="~/img/course-item.jpg">
-                </div>
-                <div class="course-text">
-                    <h2>
-                        Видео такырыбы
-                    </h2>
-                </div>
-            </a>
-            <a href="#" class="course-item">
-                <div class="course-img">
-                    <img src="~/img/course-item.jpg">
-                </div>
-                <div class="course-text">
-                    <h2>
-                        Видео такырыбы
-                    </h2>
-                </div>
-            </a>
-            <a href="#" class="course-item">
-                <div class="course-img">
-                    <img src="~/img/course-item.jpg">
-                </div>
-                <div class="course-text">
-                    <h2>
-                        Видео такырыбы
-                    </h2>
-                </div>
-            </a>
+    <div id="courses" class="courses-wrap">
+        <div class="courses const-container">
+            <h2 class="const-h2" style="margin-top: 15px">Все лайфхаки</h2>
+            <div class="course-items">
+                @foreach (var c in Model)
+                {
+                    <div class="course-item">
+                        <div class="course-img">
+                            <img src="~/lifehack/@c.PhotoUrl">
+                        </div>
+                        <div class="course-text">
+                            <h2>@c.Title</h2>
+                            <a href="#" class="const-btn">Смотреть</a>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
-        @*<a href="~/Home/AllVideo" class="all-course-btn">Барлық тегін-видеосабақтар</a>*@
     </div>
 </div>
+
 <script src="~/js/visitor.js"></script>
