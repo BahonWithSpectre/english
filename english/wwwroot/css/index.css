@@ -99,10 +99,65 @@
 .level-wrap{
    width: 100%;
 }
-.level{
-   padding: 70px 0;
-   display: flex;
-   flex-direction: column;
+/* ---- level-new ----- */
+
+.level {
+    padding: 70px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.level-img {
+    width: 30%;
+}
+.level-img > img{
+    width: 100%;
+}
+
+
+.level-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.level-text > h2, .level-text > h2 > span {
+   font-size: 32px;
+   font-family: PTSansBold;
+   color: var(--font1);
+}
+.level-text > h2 > span {
+    color: var(--button);
+}
+.text-with-icon {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.text-with-icon > i {
+    font-size: 40px;
+    color: var(--button);
+    padding: 10px;
+    margin-right: 10px;
+}
+.text-with-icon > span {
+    font-size: 18px;
+}
+.btn-label {
+    font-size: 22px;
+    color: var(--font1);
+    margin-bottom: 15px;
+}
+
+
+
+
+
+/* ---- level-old ----- */
+/*.level {
+    padding: 70px 0;
+    display: flex;
+    flex-direction: column;
 }
 .level-items{
    width: 100%;
@@ -132,7 +187,7 @@
 }
 .level > .const-btn{
    margin-top: 10px;
-}
+}*/
 
 
 /* –––––––––––––––COURSES–––––––––––––– */
@@ -411,6 +466,25 @@
    .main-text > p{
       font-size: 16px;
    }
+
+
+    .level-text > h2, .level-text > h2 > span {
+        font-size: 26px;
+    }
+    .text-with-icon {
+        padding: 10px;
+    }
+    .text-with-icon > i {
+        padding: 7px;
+        margin-right: 7px;
+    }
+    .text-with-icon > span {
+        font-size: 18px;
+    }
+    .btn-label {
+        font-size: 20px;
+    }
+
    
   .about-text-bg {
       width: 109%;
@@ -464,6 +538,25 @@
       height: 130px;
       overflow-y: scroll;
    }
+
+   
+    .level-text > h2, .level-text > h2 > span {
+        font-size: 20px;
+    }
+    .text-with-icon {
+        padding: 10px;
+    }
+    .text-with-icon > i {
+        padding: 5px;
+        margin-right: 5px;
+    }
+    .text-with-icon > span {
+        font-size: 16px;
+    }
+    .btn-label {
+        font-size: 18px;
+    }
+
 }
 @media  (max-width: 768px){
    .const-btn{
@@ -486,6 +579,31 @@
       line-height: 22px;
       height: 110px;
    }
+
+
+    .level{
+        flex-direction: column-reverse;
+    }
+    .level-img {
+        width: 40%;
+        margin-bottom: 15px;
+    }
+    .level-text {
+        width: 80%;
+        align-items: center;
+    }
+    .level-text > h2, .btn-label{
+        text-align: center;
+    }
+    .text-with-icon {
+        width: 65%;
+    }
+    .text-with-icon > i {
+        font-size: 32px;
+        padding: 0;
+        margin-right: 10px;
+    }
+
 
 
    .courses{
@@ -552,6 +670,12 @@
       font-size: 13px;
       /* margin-bottom: 25px; */
    }
+
+
+    .level-text {
+        width: 100%;
+    }
+
    .level-item{
       width: auto;
    }
@@ -629,7 +753,7 @@
 
 
 }
-@media  (max-width: 520px){
+@media  (max-width: 530px){
    .main-img{
       display: none;
    }
@@ -650,6 +774,17 @@
       width: 50%;
       margin-bottom: 25px;
    }
+
+
+   .level-img {
+        width: 50%;
+    }
+    .text-with-icon {
+        width: 75%;
+    }
+    .text-with-icon > span {
+        font-size: 15px;
+    }
    
 }
 @media  (max-width: 425px){
@@ -667,6 +802,9 @@
       width: 100%;
    }
 
+    .text-with-icon {
+        width: 85%;
+    }
 
 }
 @media  (max-width: 375px){

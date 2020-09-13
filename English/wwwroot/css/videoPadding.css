@@ -1,0 +1,5 @@
+@media (max-width: 550px) {
+    .header, .content > *, .footer {
+        padding: 0 2% !important;
+    }
+}

@@ -1,0 +1,239 @@
+
+:root {
+    --button: #f53c3c;
+    --backDark: #1752a6;
+    --backLight: #def8fe;
+    --font1: #2b2b2b;
+    --font2: #777;
+    --font3: #a6a6a6;
+    --main-color: #2d76fa;
+    --white-color: #fff;
+    --brown-color: #8003a8;
+    --grey-color: #968c88;
+    --pink-color: #f6f7f8;
+    --red-color: #bb6054;
+}
+
+@font-face {
+    font-family: PTSans;
+    src: url('PTSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: PTSansBold;
+    src: url('PTSans-Bold.ttf');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--backDark);
+    font-family: PTSans;
+    font-size: 16px;
+}
+ .wrap{
+   width: 100%;
+   background-color: #fff;
+   user-select: none;
+ }
+.header, .content, .footer {
+    padding-left: 10%;
+    padding-right: 10%;
+ }
+.content{
+    background-color: var(--backLight);
+}
+ /* --------------HEADER------------ */
+
+.header {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--backDark);
+    box-shadow: 0 1px 10px var(--backDark);
+    transition: 0.3s;
+}
+.logo {
+    width: 130px;
+    height: 100%;
+    background-image: url(../img/elogo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+}
+.logo > img{
+   width: 100%;
+}
+.header > .logo > img{
+   width: 100%;
+/*    filter: brightness(100);*/
+}
+.login{
+   text-decoration: none;
+}
+.login *{
+   color: white;
+}
+
+/* ------------------- */
+
+.footer-wrap {
+    width: 100%;
+    background-color: var(--backDark);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.footer {
+/*    padding: 50px 0 !important;*/
+}
+.footer-items{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.footer-items > *{
+   display: flex;
+   flex-direction: column;
+}
+
+/* -----fLeft----- */
+.fleft{
+   width: 25%;
+}
+.contact, .contact-phone{
+   display: flex;
+   align-items: center;
+}
+.contact > *{
+   margin-bottom: 7px;
+}
+.contact *{
+   color: white;
+}
+.contact > i{
+   font-size: 45px;
+}
+.contact-phone{
+   display: flex;
+   flex-direction: column;
+   margin-left: 10px;
+}
+.contact-phone > a{
+   font-size: 14px;
+   text-decoration: none;
+}
+.contact-phone > a:hover{
+   text-decoration: underline;
+}
+.social > a{
+   text-decoration: none;
+   text-align: center;
+   margin-right: 5px;
+   transition: 0.3s;
+}
+.social > a i{
+   width: 32px;
+   height: 32px;
+   line-height: 32px;
+   font-size: 18px;
+   background: transparent;
+   color: white;
+   border: 1px solid white;
+   border-radius: 50%;
+   transition: 0.3s;
+}
+.social > a:hover i{
+   color: white;
+}
+.social > a:first-child:hover i{
+   border-color: #24ce61;
+   background-color: #24ce61;
+}
+.social > a:last-child:hover i{
+   border-color: #fdf497;
+   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+}
+
+/* -----fCenter----- */
+.fcenter{
+   width: 33%;
+}
+.fcenter > *{
+   color: white;
+}
+.fcenter > h3{
+   font-size: 18px;
+   font-family: PTSansBold;
+   margin-bottom: 7px;
+}
+.fcenter > span{
+   font-size: 14px;
+   margin-bottom: 2px;
+}
+
+/* -----fRight----- */
+
+.fright > a{
+   font-size: 14px;
+   margin-bottom: 2px;
+   color: white;
+}
+.fright > a:hover{
+   text-decoration: none;
+}
+
+.copyright{
+   margin-top: 50px;
+   font-size: 13px;
+   text-align: center;
+   color: white;
+}
+
+
+/* –––––––––––MEDIA–––––––––––– */
+
+@media  (max-width: 1024px){
+}
+@media  (max-width: 768px){
+   .logo{
+      width: 100px;
+   }
+   .footer{
+      padding-top: 25px;
+      padding-bottom: 25px;
+   }
+   .footer-items{
+      display: flex;
+      flex-direction: column;
+   }
+   .footer-items > *{
+      width: 100%;
+      margin-bottom: 25px;
+   }
+   .copyright{
+      margin-top: 0;
+      text-align: left;
+   }
+}
+@media  (max-width: 640px){
+   .header, .content, .footer {
+      padding-left: 7%;
+      padding-right: 7%;
+   }
+}
+@media  (max-width: 425px){
+   .login > span{
+      display: none;
+   }
+   .login > i{
+      font-size: 20px;
+   }
+}
+@media  (max-width: 375px){
+}
+@media  (max-width: 320px){
+}

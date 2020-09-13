@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ENGLISH: Admin</title>
+
+    <link rel="shortcut icon" href="/img/b-l.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="~/font-awesome/css/font-awesome.min.css">
+
+    <script src="~/js/jQuery.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="swipe-menu">
+            <div class="close">
+                <span></span>
+                <!-- <i class="fa fa-close"></i> -->
+            </div>
+            <a href="/Home/Index" class="main-nav">Басты бет</a>
+            <a href="/Account/Profil" class="course-nav fix-active">Менің курстарым</a>
+            @*<a href="#" class="more-nav">Жаңалықтар</a>*@
+            <a href="/Account/Profil" class="swipe-login">
+                <span>Аккаунт</span>
+                <i class="fa fa-user-o"></i>
+            </a>
+        </div>
+        <div class="header">
+            <div class="burger">
+                <span></span>
+            </div>
+            <a class="logo" href="/Home/Index">
+                @*<img src="~/img/bilim-logo-white.png" alt="BilimOnline">*@
+                <!-- Bilim Online -->
+            </a>
+            <div class="login">
+                <span>@User.Identity.Name</span>
+                <i class="fa fa-user-o"></i>
+                <div class="user-menu">
+                    <i class="fa fa-caret-up"></i>
+
+                    <a href="/Account/Profil" class="cart-show"><i class="fa fa-bars"></i>Менің курстарым</a>
+
+                    <a href="#"><i class="fa fa-cog"></i>Баптаулар</a>
+                    <a href="/Account/Logout"><i class="fa fa-sign-out"></i>Шығу</a>
+                </div>
+            </div>
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+    <div class="sidebar">
+        <a href="/Home/AllKurs">Курстар тізімі</a>
+    </div> 
+    }
+                else
+                {
+    <div class="sidebar">
+        <a href="/Account/Login">Тіркелу</a>
+    </div>}
+
+        @RenderBody()
+
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.kurs-down').click(function (e) {
+                e.preventDefault();
+                $('.kurs-down-menu').slideToggle(100);
+                $(this).toggleClass('act-kurs-down');
+                $(this).children('i').toggleClass('act-down-icon');
+            });
+
+            $('.login').click(function () {
+                $('.user-menu').slideToggle(300);
+            });
+            $('.content').click(function () {
+                $('.user-menu').slideUp(300);
+            });
+
+            $('.burger').click(function () {
+                $('.swipe-menu').toggleClass('active-menu')
+            })
+            $('.close').click(function () {
+                $('.swipe-menu').removeClass('active-menu')
+            })
+        });
+    </script>
+</body>
+</html>

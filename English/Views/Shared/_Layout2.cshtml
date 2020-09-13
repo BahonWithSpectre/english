@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ENGLISH: Admin</title>
+
+    <link rel="shortcut icon" href="/img/b-l.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="~/font-awesome/css/font-awesome.min.css">
+
+    <script src="~/js/jQuery.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        @if (User.IsInRole("Admin"))
+        {
+        <div class="swipe-menu">
+            <div class="close">
+                <span></span>
+                <!-- <i class="fa fa-close"></i> -->
+            </div>
+            <a href="/Home/Index">Басты бет</a>
+            <a href="/Admin/UserList" class="fix-active">Оқушылар</a>
+            <a href="/Admin/FreeVideoList">Категория</a>
+            <a href="/Admin/LifehackList">Лайфхаки</a>
+            <a href="#" class="kurs-down">Курстар <i class="fa fa-angle-right"></i> </a>
+            <div class="kurs-down-menu">
+                <a href="/Admin/KursList">Курстар тізімі</a>
+                <a href="/Admin/KursCreate">Курс қосу</a>
+            </div>
+
+            <a href="/Account/Profil" class="swipe-login">
+                <span>Аккаунт</span>
+                <i class="fa fa-user-o"></i>
+            </a>
+        </div>
+        }
+        else
+        {
+    <div class="swipe-menu">
+        <div class="close">
+            <span></span>
+            <!-- <i class="fa fa-close"></i> -->
+        </div>
+        <a href="/Home/Index" class="main-nav">Басты бет</a>
+        <a href="/Account/Profil" class="course-nav fix-active">Менің курстарым</a>
+        <a href="/Account/AllKurs">Барлық курстар</a>
+        <a href="/Account/News">Хабарламалар</a>
+        <a href="/Account/Profil" class="swipe-login">
+            <span>Аккаунт</span>
+            <i class="fa fa-user-o"></i>
+        </a>
+    </div>
+        }
+        <div class="header">
+            <div class="burger">
+                <span></span>
+            </div>
+            <a class="logo" href="/Home/Index">
+                @*<img src="~/img/bilim-logo-white.png" alt="BilimOnline">*@
+                <!-- Bilim Online -->
+            </a>
+            <div class="login">
+                <span>@User.Identity.Name</span>
+                <i class="fa fa-user-o"></i>
+                <div class="user-menu">
+                    <i class="fa fa-caret-up"></i>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="/Home/Index" class="cart-show"><i class="fa fa-home"></i>Басты бет</a>
+                    }
+                    else
+                    {
+                        <a href="/Account/Profil" class="cart-show"><i class="fa fa-bars"></i>Менің курстарым</a>
+                    }
+                    @*<a href="#"><i class="fa fa-cog"></i>Баптаулар</a>*@
+                    <a href="/Account/Logout"><i class="fa fa-sign-out"></i>Шығу</a>
+                </div>
+            </div>
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (User.IsInRole("Admin"))
+            {
+                <div class="sidebar">
+                    <a href="/Home/Index">Басты бет</a>
+                    <a href="/Admin/UserList">Оқушылар</a>
+                    <a href="/Admin/FreeVideoList">Категория</a>
+                    <a href="/Admin/LifehackList">Лайфхаки</a>
+                    <a href="#" class="kurs-down">Курстар <i class="fa fa-angle-right"></i> </a>
+                    <div class="kurs-down-menu">
+                        <a href="/Admin/KursList">Курстар тізімі</a>
+                        <a href="/Admin/KursCreate">Курс қосу</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="sidebar">
+                    <a href="/Home/Index">Басты бет</a>
+                    <a href="/Account/Profil" class="fix-active">Менің курстарым</a>
+                    <a href="/Account/AllKurs">Барлық курстар</a>
+                    <a href="/Account/News">Хабарламалар</a>
+                </div>
+            }
+        }
+
+        @RenderBody()
+
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.kurs-down').click(function (e) {
+                e.preventDefault();
+                $('.kurs-down-menu').slideToggle(100);
+                $(this).toggleClass('act-kurs-down');
+                $(this).children('i').toggleClass('act-down-icon');
+            });
+
+            $('.login').click(function () {
+                $('.user-menu').slideToggle(300);
+            });
+            $('.content').click(function () {
+                $('.user-menu').slideUp(300);
+            });
+
+            $('.burger').click(function () {
+                $('.swipe-menu').toggleClass('active-menu')
+            })
+            $('.close').click(function () {
+                $('.swipe-menu').removeClass('active-menu')
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@model english.DbFolder.KursVideo
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "Video";
+}
+<link href="~/css/video.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
+
+
+
+<div class="content">
+    <div class="main">
+        <div class="video-block">
+            <div class="video">
+                <div class="plyr__video-embed" id="player">
+                    <iframe
+                        src="@Model.VideoUrl"
+                        encrypted-media;
+                        gyroscope;
+                        allowfullscreen
+                        allow="autoplay"
+                        controls
+                    ></iframe>
+                </div>
+            </div>
+            <div class="video-text">
+                <h1>@Model.VideoName</h1>
+                <p><i class="fa fa-user"></i> @Model.Kurs.AvtorName</p>
+                <p class="vinfo">
+                    @Model.Info
+                </p>
+            </div>
+            <hr />
+            <div style="margin-top:25px;">
+                <a class="btn-success" style="font-size: 22px; color: red;">Үй тапсырмасы:</a> <a style="margin-left: 20px; background-color: bisque; padding: 12px 30px; border-radius: 20px; color: #2583e5; font-size: 20px;" href="@Model.WorkUrl" target="_blank">Тапсыру</a>
+            </div>
+        </div>
+        <div class="video-titles">
+            @foreach (var c in ViewBag.OtherVideos)
+            {
+
+                <a href="/Account/Video/@c.Kurs.Id?videoId=@c.Id" class="video-title">
+                    <div class="baner">
+                        <img src="~/kursvideo/@c.PhotoUrl">
+                    </div>
+                    <div class="title-text">
+                        <h3>@c.VideoName</h3>
+                        <p>@c.Info</p>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>
+<script>
+    const player = new Plyr('#player');
+
+    @*alert($('.vinfo').text());*@
+
+    $(window).load(function () {
+        var element = $('.vinfo').text();
+        var maxLength = 10;
+
+        if (element.length > maxLength) {
+            element = element.substr(0, maxLength) + '...';
+        }
+        $('.vinfo').text() = element;
+        @*return element;*@
+    })
+
+</script>

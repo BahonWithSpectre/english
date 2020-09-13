@@ -1,0 +1,266 @@
+@import url('const3.css');
+@import url('videoPadding.css');
+
+/* ----------------CONTENT------------------ */
+
+.main {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.video-block{
+   width: 70%;
+}
+.video{
+   width: 100%;
+/*   height: 460px;*/
+   margin-bottom: 15px;
+   border-radius: 3px;
+   overflow: hidden;
+   background-color: var(--backDark);
+   box-shadow: 0 0 10px var(--font3);
+}
+.video > iframe{
+   width: 100%;
+   height: 100%;
+}
+
+.video-text{
+   width: 100%;
+}
+.video-text > *{
+   color: var(--font2);
+}
+.video-text > h1{
+   color: var(--font1);
+   font-size: 26px;
+    font-family: PTSans-Bold;
+}
+
+
+/* -----------video-titles---------- */
+.video-titles{
+   width: 30%;
+/*   height: 90vh;*/
+   margin-left: 15px;
+/*   overflow-y: scroll;*/
+}
+.video-title{
+   width: 100%;
+   height: 100px;
+   text-decoration: none;
+   display: flex;
+   justify-content: space-between;
+   background-color: #fff;
+   border-radius: 3px;
+   overflow: hidden;
+   box-shadow: inset 0 0 3px var(--font3);
+   padding: 5px;
+   margin-bottom: 10px;
+}
+.baner{
+   width: 40%;
+   border-radius: 3px;
+   overflow: hidden;
+}
+.baner > img{
+   width: 100%;
+   height: 100%;
+}
+.title-text{
+   width: 60%;
+   padding-left: 10px;
+   display: flex;
+   flex-direction: column;
+}
+.title-text > h3 {
+    font-family: PTSans-Bold;
+    color: var(--font1);
+}
+.title-text > p {
+    font-size: 13px;
+    color: var(--backDark);
+   overflow-y: scroll;
+}
+.title-text > span, .title-text > span > i{
+   font-size: 14px;
+   color: var(--font3);
+}
+
+
+
+
+@media (min-width: 1200px) and (max-width: 1300px) {
+    .video {
+/*        height: 415px;*/
+    }
+    .video-title {
+        height: 90px;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .video {
+/*        height: 375px;*/
+    }
+    .video-title {
+        height: 85px;
+    }
+}
+
+@media (min-width: 880px) and (max-width: 1024px) {
+    .video{
+/*      height: 285px;*/
+   }
+    .video-text > h1 {
+        font-size: 22px;
+    }
+   .video-block{
+      width: 65%;
+   }
+   .video-titles{
+      width: 35%;
+   }
+   .title-text > h3{
+      font-size: 14px;
+   }
+   .title-text > p, .title-text > span, .title-text > span > i{
+      font-size: 12px;
+   }
+    .video-title {
+        height: 80px;
+    }
+}
+@media (max-width: 880px) {
+    .main {
+        flex-direction: column;
+    }
+   .main > *{
+      width: 100%;
+   }
+   .video {
+/*      height: 380px;*/
+   }
+   .video-text > h1 {
+      font-size: 24px;
+   }
+   .video-titles{
+      margin-left: 0;
+      margin-top: 20px;
+   }
+    .video-title{
+        height: 120px;
+    }
+    .baner {
+        width: 25%;
+    }
+   .title-text{
+      width: 75%;
+      justify-content: space-around;
+   }
+   .title-text > h3 {
+      font-size: 20px;
+   }
+   .title-text > p, .title-text > span, .title-text > span > i {
+      font-size: 16px;
+   }
+}
+
+@media  (max-width: 768px){
+   .main{
+      padding-top: 12px;
+   }
+   .video {
+/*      height: 330px;*/
+   }
+    .video-title{
+        height: 110px;
+    }
+}
+@media  (max-width: 640px){
+   .main{
+      padding-top: 0;
+   }
+   .video {
+      width: 105%;
+/*      height: 360px;*/
+      margin-left: -2.5%;
+      border-radius: 0;
+      box-shadow: none;
+  }
+    .video-title {
+        height: 115px;
+    }
+   .title-text > p, .title-text > span, .title-text > span > i {
+      font-size: 15px;
+   }
+}
+@media  (max-width: 550px){
+   .video {
+/*      height: 310px;*/
+   }
+    .video-titles {
+        padding-bottom: 70px;
+    }
+   .video-title {
+      height: 100px;
+  }
+   .video-text > h1 {
+      font-size: 20px;
+   }
+   .title-text > h3 {
+      font-size: 18px;
+   }
+   .video-text > p, .title-text > p, .title-text > span, .title-text > span > i {
+      font-size: 14px;
+   }
+}
+@media  (max-width: 425px){
+   .video {
+/*      height: 240px;*/
+   }
+   .video-text > h1 {
+      font-size: 18px;
+   }
+   .video-title {
+      height: 95px;
+  }
+   .baner {
+      width: 32%;
+   }
+   .title-text{
+      width: 68%;
+   }
+   .title-text > h3 {
+      font-size: 18px;
+   }
+   .video-text > p, .title-text > p, .title-text > span, .title-text > span > i {
+      font-size: 13px;
+   }
+}
+@media  (max-width: 375px){
+   .video {
+/*      height: 210px;*/
+   }
+   .video-title {
+      height: 90px;
+  }
+   .video-text > h1 {
+      font-size: 16px;
+   }
+   .title-text > h3 {
+      font-size: 16px;
+   }
+   .video-text > p, .title-text > p, .title-text > span, .title-text > span > i {
+      font-size: 12px;
+   }
+}
+@media  (max-width: 320px){
+   .video {
+/*      height: 180px;*/
+   }
+   .video-title {
+      height: 80px;
+  }
+}

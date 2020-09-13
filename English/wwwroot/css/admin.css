@@ -1,0 +1,183 @@
+@import url('const3.css');
+
+
+/* –––––––––––––––STUDENTS–––––––––––––– */
+
+.main{
+   width: 100%;
+   padding-top: 25px;
+   padding-bottom: 100px;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+}
+.main-head{
+   display: flex;
+   align-items: center;
+   margin-bottom: 15px;
+}
+.search{
+   margin-right: 17px;
+}
+.search > input{
+   width: 200px;
+   padding: 3px 5px;
+   outline: none;
+   border: none;
+   border-bottom: 2px solid var(--backDark);
+   background-color: transparent;
+   margin-right: 5px;
+}
+.search > input:focus{
+   background-color: transparent;
+}
+.search > button{
+   padding: 5px 10px;
+   border-radius: 2px;
+   cursor: pointer;
+   background-color: var(--backDark);
+   box-shadow: 0 0 3px var(--backDark);
+   outline: none;
+   border: none;
+   transition: 0.3s;
+}
+.search > button:hover{
+   background-color: var(--button);
+   box-shadow: 0 0 5px var(--backDark);
+}
+.search > button > i{
+   font-size: 18px;
+   color: var(--white-color);
+}
+.pager > a{
+   margin-left: 5px;
+   text-decoration: none;
+   padding: 5px 10px;
+   color: var(--font1);
+   background-color: var(--white-color);
+   border-radius: 2px;
+   box-shadow: 0 0 3px var(--grey-color);
+   transition: 0.2s;
+}
+.pager > a:hover{
+   box-shadow: 0 0 7px var(--grey-color);
+}
+.pager > a:first-child:hover > i{
+   transform: translateX(-2px);
+}
+.pager > a:last-child:hover > i{
+   transform: translateX(2px);
+}
+.pager > a > i{
+   color: var(--backDark);
+   font-size: 18px;
+   font-weight: bold;
+   margin: 0 3px;
+   position: relative;
+   transition: 0.2s;
+}
+
+.pager > .page-act:hover {
+    cursor: default;
+    box-shadow: 0 0 3px var(--grey-color) !important;
+}
+
+
+.student{
+   width: 350px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 15px 20px;
+   margin-bottom: 15px;
+   background-color: var(--pink-color);
+   border-radius: 2px;
+   box-shadow: 0 0 3px var(--grey-color);
+}
+.student:hover{
+   box-shadow: 0 0 5px var(--grey-color);
+}
+.stud-data{
+   width: 60%;
+}
+.stud-data > p{
+   font-weight: bold;
+   font-size: 14px;
+   margin-bottom: 5px;
+}
+.stud-data > p:last-child{
+   color: var(--backDark);
+}
+.stud-more {
+    text-decoration: none;
+    padding: 7px 15px;
+    font-size: 13px;
+    color: var(--white-color);
+    background-color: var(--button);
+    border-radius: 2px;
+    box-shadow: 0 0 3px var(--font2);
+    transition: 0.2s;
+}
+.stud-more:hover{
+   box-shadow: 0 0 7px var(--button);
+}
+
+
+
+@media  (max-width: 1024px){
+}
+@media  (max-width: 768px){
+   
+}
+@media  (max-width: 640px){
+   .main{
+      align-items: center;
+   }
+}
+@media  (max-width: 550px){
+   .main-head, .students, .student{
+      width: 100%;
+   }
+   .main-head{
+      justify-content: space-between;
+   }
+   .search{
+      width: 70%;
+      margin-right: 0;
+   }
+   .search > input{
+      width: 70%;
+      font-size: 14px;
+   }
+}
+@media  (max-width: 425px){
+   
+}
+@media  (max-width: 375px){
+    .stud-more{
+        padding: 7px;
+    }
+}
+@media  (max-width: 320px){
+   .search > button, .pager > a{
+      padding: 4px 8px;
+   }
+   .student{
+      padding: 10px;
+   }
+   .stud-data > p > span{
+      font-size: 14px;
+   }
+   .stud-data > p{
+      font-size: 13px;
+   }
+   .stud-data{
+      width: 50%;
+   }
+   .stud-more{
+      padding: 7px;
+   }
+   .pager > a > span, .pager > a > i{
+      font-size: 15px;
+   }
+}

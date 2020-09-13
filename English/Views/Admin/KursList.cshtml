@@ -1,0 +1,29 @@
+﻿@model IEnumerable<english.DbFolder.Kurs>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "KursList";
+}
+
+<link href="~/css/kursList.css" rel="stylesheet">
+
+<div class="content">
+    <div id="courses" class="courses">
+        <h2>Курстар</h2>
+        <div class="course-items">
+            @foreach (var c in Model)
+            {
+                <div class="course-item">
+                    <div class="course-img">
+                        <img src="~/kurs/@c.BannerUrl">
+                    </div>
+                    <div class="course-text">
+                        <h2>@c.Name</h2>
+                        <p><i class="fa fa-user"></i>@c.AvtorName</p>
+                        <span>@c.Info</span>
+                        <a href="/Admin/KursEdit/@c.Id">Өзгерту</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

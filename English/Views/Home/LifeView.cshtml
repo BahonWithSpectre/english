@@ -1,0 +1,64 @@
+﻿@model english.Models.LifehackView
+@{ Layout = "~/Views/Shared/_Layout3.cshtml";
+    ViewData["Title"] = "Video"; }
+
+
+<link href="~/css/video.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
+
+
+
+<div class="content">
+    <div class="main">
+        <div class="video-block">
+            <div class="video">
+                <div class="plyr__video-embed" id="player">
+                    <iframe src="@Model.Lifehack.VideoUrl"
+                            encrypted-media;
+                            gyroscope;
+                            allowfullscreen
+                            allow="autoplay"
+                            controls></iframe>
+                </div>
+            </div>
+            <div class="video-text">
+                <h1>@Model.Lifehack.Title</h1>
+            </div>
+        </div>
+        <div class="video-titles">
+            @foreach (var c in Model.LifeHacks)
+            {
+
+<a href="/Home/LifeView/@c.Id" class="video-title">
+    <div class="baner">
+        <img src="~/life/@c.PhotoUrl">
+    </div>
+    <div class="title-text">
+        <h3>@c.Title</h3>
+    </div>
+</a>        }
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>
+<script>
+    const player = new Plyr('#player');
+
+    @*alert($('.vinfo').text());*@
+
+    $(window).load(function () {
+        var element = $('.vinfo').text();
+        var maxLength = 10;
+
+        if (element.length > maxLength) {
+            element = element.substr(0, maxLength) + '...';
+        }
+        $('.vinfo').text() = element;
+        @*return element;*@
+    })
+
+</script>

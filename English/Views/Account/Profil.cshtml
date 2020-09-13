@@ -1,0 +1,50 @@
+﻿@model IEnumerable<english.DbFolder.UserKurs>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "Profil";
+}
+
+
+<link href="~/css/cabinet.css" rel="stylesheet">
+
+
+
+<div class="content">
+    <div id="courses" class="courses">
+        <h2>Менің курстарым</h2>
+        <div class="course-items">
+        @if (Model != null)
+        {
+            @foreach (var x in Model)
+            {
+                foreach (var c in ViewBag.kurses)
+                {
+                    if (x.KursId == c.Id)
+                    {
+                        <div class="course-item">
+                            <div class="course-img">
+                                <img src="~/kurs/@c.BannerUrl">
+                            </div>
+                            <div class="course-text">
+                                <h2>@c.Name</h2>
+                                <p><i class="fa fa-user"></i>@c.AvtorName</p>
+                                <span>@c.Info</span>
+                                <a href="/Account/Video/@c.Id?videoId">Бастау</a>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        @*if ($('.course-items').is(':empty')) {*@
+        if ($('.course-item').length === 0) {
+            $('.course-items').html('<h1 style="padding: 25px">Еще нет никаких данных!</h1>');
+        }
+    });
+</script>

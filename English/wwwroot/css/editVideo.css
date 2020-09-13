@@ -1,0 +1,84 @@
+@import url('const3.css');
+
+
+/* ––––––––––––––– KursCreate –––––––––––––– */
+
+.create{
+   width: 100%;
+   padding-top: 20px;
+   padding-bottom: 100px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.create > button{
+   padding: 10px 50px;
+   color: var(--white-color);
+   background-color: var(--main-color);
+   cursor: pointer;
+   outline: none;
+	border: none;
+	border-radius: 2px;
+   box-shadow: 0 0 3px var(--grey-color);
+}
+.form-blocks{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.form-block{
+   width: 32%;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+}
+.form-block > label{
+   margin-bottom: 5px;
+}
+.form-block > input, .form-block > textarea{
+   width: 100%;
+   margin-bottom: 15px;
+   padding: 5px 10px;
+	border-radius: 2px;
+	border: none;
+   box-shadow: 0 0 3px var(--grey-color);
+}
+.form-block > input:focus, .form-block > textarea:focus{
+	outline: 2px solid var(--brown-color);
+}
+.img-block{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0 0 3px var(--grey-color);
+   margin: 0 auto;
+}
+
+@media  (max-width: 1024px){
+   .form-blocks{
+      flex-wrap: wrap;
+      justify-content: space-around;
+   }
+   .form-block{
+      width: 47%;
+   }
+}
+@media  (max-width: 768px){
+   .form-blocks{
+      flex-direction: column;
+      align-items: center;
+   }
+   .form-block{
+      width: 80%;
+   }
+}
+@media  (max-width: 640px){
+}
+@media  (max-width: 550px){
+}
+@media  (max-width: 425px){
+}
+@media  (max-width: 375px){
+}
+@media  (max-width: 320px){
+}

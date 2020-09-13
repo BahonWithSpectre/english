@@ -1,0 +1,65 @@
+﻿@model english.DbFolder.KursVideo
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "EditVideo";
+}
+
+<link href="~/css/kursEdit.css" rel="stylesheet">
+
+<div class="content">
+    <form asp-action="EditVideo" class="create" enctype="multipart/form-data">
+        <div class="form-blocks">
+            <div class="form-block">
+                <input name="kursId" type="hidden" value="@Model.KursId">
+                <input name="videoId" type="hidden" value="@Model.Id">
+                <label for="title">Видео тақырыбы:</label>
+                <input asp-for="VideoName" id="title" type="text" value="@Model.VideoName" required>
+
+                <label for="video-info">Видео мини инфо:</label>
+                <textarea asp-for="Info" id="video-info" rows="5" value="@Model.Info" required></textarea>
+
+
+                <div>
+                    <label>
+                        <input asp-for="Free" id="free-video" /> Тегін видео
+                    </label>
+                </div>
+            </div>
+            <div class="form-block">
+                <label for="video-url">Видеоға сілтеме (url):</label>
+                <input asp-for="VideoUrl" id="video-url" type="text" value="@Model.VideoUrl" required>
+
+                <label for="work-url">Үй жұмысы (url):</label>
+                <input asp-for="WorkUrl" id="work-url" type="text" required>
+            </div>
+            <div class="form-block">
+                <label for="photo">Курс баннері(фото, jpg, png => 350 x 230):</label>
+                <input id="photo" onchange="readURL(this);" name="PhotoUrl" type="file" accept="jpg/png">
+                <div class="img-block">
+                    <img id="banner" src="~/kursvideo/@Model.PhotoUrl">
+                </div>
+            </div>
+        </div>
+        <div class="btn-block">
+            <a href="/Admin/KursEdit/@Model.KursId">Болдырмау</a>
+            <a href="/Admin/DeleteVideo/@Model.Id">Видеоны жою</a>
+            <button type="submit">Сақтау</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#banner')
+                    .attr('src', e.target.result)
+                    .width('300px')
+                    .height('200px');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+

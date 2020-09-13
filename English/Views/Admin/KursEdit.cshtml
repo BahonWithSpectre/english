@@ -1,0 +1,145 @@
+﻿@model english.DbFolder.Kurs
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "KursEdit";
+}
+
+<link href="~/css/kursEdit.css" rel="stylesheet">
+
+<div class="content">
+    <form asp-action="KursEdit" class="create" enctype="multipart/form-data">
+        <div class="form-blocks">
+            <div class="form-block">
+                <input type="hidden" asp-for="Id">
+                <input type="hidden" asp-for="BannerUrl">
+                <input type="hidden" asp-for="PhotoUrl">
+                <input type="hidden" asp-for="AvtorImgUrl">
+
+                <label for="kursname">Курс аты:</label>
+                <input asp-for="Name" id="kursname" type="text" value="@Model.Name" required>
+
+                <label for="price">Курс бағасы:</label>
+                <input asp-for="Price" id="price" type="number" value="@Model.Price">
+
+                <label for="kurs-info">Курс туралы қысқаша:</label>
+                <textarea asp-for="Info" id="kurs-info" rows="2" value="@Model.Info" required></textarea>
+
+                <label for="avtor">Курс авторы:</label>
+                <input asp-for="AvtorName" id="avtor" type="text" value="@Model.AvtorName" required>
+
+                <label for="avtor-info">Автор туралы инфо:</label>
+                <textarea asp-for="AvtorInfo" id="avtor-info" rows="5" value="@Model.AvtorInfo"></textarea>
+                <br />
+
+                <label>Категория</label>
+                <select>
+                    <option>Fizika</option>
+                    <option>Mathematic</option>
+                    <option>Fizika</option>
+                </select>
+            </div>
+            <div class="form-block">
+                <label for="kurs-info">Курс кімдерге арналады:</label>
+                <textarea asp-for="Kimge1" id="kimge1" rows="2" value="@Model.Kimge1" ></textarea>
+                <textarea asp-for="Kimge2" id="kimge2" rows="2" value="@Model.Kimge2" ></textarea>
+                <textarea asp-for="Kimge3" id="kimge3" rows="2" value="@Model.Kimge3"></textarea>
+                <textarea asp-for="Kimge4" id="kimge4" rows="2" value="@Model.Kimge4"></textarea>
+                <textarea asp-for="Kimge5" id="kimge5" rows="2" value="@Model.Kimge5"></textarea>
+
+                <label for="kurs-info">Курста не үйренеді:</label>
+                <textarea asp-for="What1" id="what1" rows="2" value="@Model.What1" ></textarea>
+                <textarea asp-for="What2" id="what2" rows="2" value="@Model.What2" ></textarea>
+                <textarea asp-for="What3" id="what3" rows="2" value="@Model.What3" ></textarea>
+            </div>
+            <div class="form-block">
+                <label for="photo">Курс Баннер(фото, jpg, png):</label>
+                <input id="photo" onchange="readURL1(this);" name="banner" type="file"  accept="jpg/png">
+                <div class="img-block">
+                    <img id="kursFon" src="~/kurs/@Model.BannerUrl">
+                </div>
+                <br />
+
+                <label for="photo">Курс фон(фото, jpg, png => 350 x 230):</label>
+                <input id="photo" onchange="readURL2(this);" name="fon" type="file"  accept="jpg/png">
+                <div class="img-block">
+                    <img id="kursBanner" src="~/kurs/@Model.PhotoUrl">
+                </div>
+                <br />
+
+                <label for="photo">Автор суреті(фото, jpg, png):</label>
+                <input id="photo" onchange="readURL3(this);" name="avtor" type="file"  accept="jpg/png">
+                <div class="img-block">
+                    <img style="height: 400px" id="avtorImg" src="~/kurs/@Model.AvtorImgUrl">
+                </div>
+            </div>
+        </div>
+        <div class="btn-block">
+            <a href="/Admin/KursList">Болдырмау</a>
+            <a href="/Admin/DeleteKurs/@Model.Id">Курсты жою</a>
+            <button type="submit">Сақтау</button>
+        </div>
+    </form>
+    <div class="kurs-videos">
+        <h3>Курс видеолары</h3>
+        <div class="video-titles">
+            <a href="/Admin/AddVideo/@Model.Id" class="add-video" title="Видео қосу">
+                <span>+</span>
+            </a>
+            @foreach (var c in ViewBag.KursVideos)
+            {
+                <div class="video-title">
+                    <div class="baner">
+                        <img src="~/kursvideo/@c.PhotoUrl">
+                    </div>
+                    <div class="title-text">
+                        <h3>@c.VideoName</h3>
+                        <p>@c.Info</p>
+                        <span><i class="fa fa-eye"></i> 1634</span>
+                    </div>
+                    <a href="/Admin/EditVideo/@c.Id">Видеоны өзгерту</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#kursFon')
+                    .attr('src', e.target.result)
+                    .width('300px')
+                    .height('200px');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#kursBanner')
+                    .attr('src', e.target.result)
+                    .width('300px')
+                    .height('200px');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function readURL3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#avtorImg')
+                    .attr('src', e.target.result)
+                    .width('300px')
+                    .height('200px');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+

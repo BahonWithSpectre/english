@@ -1,0 +1,106 @@
+@import url('const3.css');
+
+/* –––––––––––––––STUDENTS–––––––––––––– */
+
+.main{
+   width: 100%;
+   padding-top: 25px;
+   padding-bottom: 100px;
+}
+
+.back{
+   text-decoration: none;
+   transition: 0.2s;
+}
+.back > span, .back > i{
+    color: var(--font1);
+   font-weight: bold;
+}
+.back:hover{
+   text-shadow: 0 0 10px var(--grey-color);
+}
+.tables{
+   display: flex;
+   justify-content: space-between;
+}
+.tables > *{
+   width: 49%;
+}
+.tables table{
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 20px;
+   box-shadow: 0 0 3px var(--backDark);
+   transition: 0.2s;
+}
+.tables table:hover{
+   box-shadow: 0 0 6px var(--backDark);
+}
+.tables table tr:first-child > th{
+   background-color: var(--backDark);
+   color: var(--white-color);
+   box-shadow: 0 0 1px var(--backDark);
+   padding: 10px;
+}
+.tables table th{
+   font-weight: bold;
+   background-color: var(--backLight);
+   color: var(--backDark);
+}
+.tables table td, .tables table th{
+   padding: 10px 15px;
+   text-align: left;
+   box-shadow: 0 0 1px var(--main-color);
+}
+
+
+.red-btn, .green-btn{
+    cursor: pointer;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #aaa;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+.red-btn:focus, .green-btn:focus {
+    border: none;
+    outline: none;
+}
+.red-btn {
+    background-color: var(--button);
+}
+.green-btn {
+    background-color: green;
+}
+.red-btn:hover, .green-btn:hover {
+    filter: brightness(0.8);
+}
+
+
+
+
+@media  (max-width: 1024px){
+   .tables{
+      flex-direction: column;
+   }
+   .tables > *{
+      width: auto;
+   }
+}
+@media  (max-width: 768px){
+   
+}
+@media  (max-width: 640px){
+}
+@media  (max-width: 550px){
+}
+@media  (max-width: 425px){
+   
+}
+@media  (max-width: 375px){
+   
+}
+@media  (max-width: 320px){
+}

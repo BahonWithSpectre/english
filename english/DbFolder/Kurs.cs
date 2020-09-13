@@ -17,6 +17,7 @@ namespace english.DbFolder
         public string Info { get; set; }
 
 
+
         public string Kimge1 { get; set; }
         public string Kimge2 { get; set; }
         public string Kimge3 { get; set; }

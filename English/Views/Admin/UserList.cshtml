@@ -1,0 +1,81 @@
+﻿@model english.ViewModel.AdminViewModel.UsersView
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "UserList";
+}
+
+<link href="~/css/admin.css" rel="stylesheet">
+
+<div class="content">
+    <div class="main">
+        <div class="main-head">
+            <form class="search">
+                <input type="search" placeholder="Тел. номер" required>
+                <button><i class="fa fa-search"></i></button>
+            </form>
+            <div class="pager">
+                @if (Model.Pager.CurrentPage > 1)
+                {
+                    <a href="/Admin/UserList?page=@(Model.Pager.CurrentPage - 1)"><i class="fa fa-angle-double-left"></i></a>
+                }
+
+                @for (var pg = Model.Pager.StartPage; pg <= Model.Pager.EndPage; pg++)
+                {
+
+                    if (pg == ViewBag.Page)
+                    {
+                        <a href="~/Admin/UserList?page=@pg" class="page-act">@pg - бет</a>
+                    }
+                }
+
+                @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                {
+                    <a href="/Admin/UserList?page=@(Model.Pager.CurrentPage + 1)"><i class="fa fa-angle-double-right"></i></a>
+                }
+            </div>
+        </div>
+        <div class="students">
+            @foreach (var c in Model.Users)
+            {
+                <div class="student">
+                    <div class="stud-data">
+                        <p>
+                            <span>@c.FirstName</span>
+                            <span>@c.LastName</span>
+                        </p>
+                        <p>@c.PhoneNumber</p>
+                    </div>
+                    <a href="/Admin/AboutUser/@c.Id" class="stud-more">Оқушы туралы</a>
+                </div>
+            }
+        </div>
+        <div class="pager">
+            @if (Model.Pager.CurrentPage > 1)
+            {
+                <a href="/Admin/UserList?page=@(Model.Pager.CurrentPage - 1)"><i class="fa fa-angle-double-left"></i><span>Артқа</span></a>
+            }
+
+            @for (var pg = Model.Pager.StartPage; pg <= Model.Pager.EndPage; pg++)
+            {
+
+                if (pg == ViewBag.Page)
+                {
+                    <a href="~/Admin/UserList?page=@pg" class="page-act">@pg - бет</a>
+                }
+            }
+
+            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+            {
+                <a href="/Admin/UserList?page=@(Model.Pager.CurrentPage + 1)"><span>Келесі</span><i class="fa fa-angle-double-right"></i></a>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.page-act').on('click', function (e) {
+            e.preventDefault();
+        })
+    })
+</script>

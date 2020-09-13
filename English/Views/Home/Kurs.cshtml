@@ -1,0 +1,179 @@
+﻿@model english.DbFolder.Kurs
+@{
+    ViewData["Title"] = "Kurs";
+    int counter = 0;
+}
+
+<link href="~/css/courseView.css" rel="stylesheet">
+
+<div class="swipe-menu">
+    <div class="close">
+        <span></span>
+    </div>
+    <a href="#" class="main-nav fix-active">Басты бет</a>
+    <a href="#" class="teacher-nav">Спикер жайлы</a>
+    <a href="#" class="about-nav">Курс жайлы</a>
+    @*<a href="#" class="packages-nav">Пакеттер</a>*@
+    <a href="/Account/Profil" class="swipe-login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+    </a>
+</div>
+<div class="header">
+    <div class="go-back">
+        <i class="fa fa-arrow-left"></i>
+        <a class="go-back" href="/Home/Index#courses">Курстар</a>
+        <!-- <img src="img/logo.png" alt="BeautyOnline"> -->
+        <!-- Beauty Online -->
+    </div>
+    <div class="nav">
+        <a href="#" class="main-nav fix-active">Басты бет</a>
+        <a href="#" class="teacher-nav">Спикер жайлы</a>
+        <a href="#" class="about-nav">Курс жайлы</a>
+        @*<a href="#" class="packages-nav">Пакеттер</a>*@
+    </div>
+    <a href="/Account/Profil" class="login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+        <!-- <a href="#">Кіру / Тіркелу</a> -->
+    </a>
+    <div class="burger">
+        <span></span>
+    </div>
+</div>
+<div class="content">
+    <div id="main" class="main" style="background-image: url('/kurs/@Model.PhotoUrl')">
+        <div class="main-text">
+            <h2>@Model.Name</h2>
+            <p>@Model.Info</p>
+            @if (ViewBag.Stats == 1)
+            {
+                <a href="/Account/Profil" class="btn">Курсты оқу</a>
+            }
+            else
+            {
+                <a href="#" class="btn buy-btn">Сатып алу</a>
+            }
+
+        </div>
+        @*<div class="main-bg" style="background-image: url(/img/kurs-about.png);"></div>*@
+    </div>
+
+    @* MODAL *@
+    <div class="modal-screen">
+        <div class="modal-bg"></div>
+        <div class="modal-window">
+            <div class="modal-section">
+                <div class="close-mod"><span></span></div>
+                <p>Бұл курсты сатып алу үшін WhatsApp нөмеріне жазыңыз.</p>
+                <a href="https://wa.me/77056644647" class="submit">Жазу</a>
+            </div>
+        </div>
+    </div>
+    @* MODAL *@
+
+    <div id="teacher" class="teacher">
+        <div class="teacher-img">
+            <img src="/kurs/@Model.AvtorImgUrl">
+        </div>
+        <div class="teacher-text">
+            <h2>@Model.AvtorName</h2>
+            <p>@Model.AvtorInfo</p>
+        </div>
+    </div>
+
+    <div id="about" class="about">
+        <div class="about-course">
+            <div class="course-block">
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <h2>КУРС КІМДЕРГЕ АРНАЛАДЫ?</h2>
+                <ul>
+                    <li>@Model.Kimge1</li>
+                    <li>@Model.Kimge2</li>
+                    <li>@Model.Kimge3</li>
+                    <li>@Model.Kimge4</li>
+                    <li>@Model.Kimge5</li>
+                </ul>
+            </div>
+            <div class="course-block">
+                <div class="icon">
+                    <i class="fa fa-book"></i>
+                </div>
+                <h2>КУРС ҚАЛАЙ ӨТЕДІ?</h2>
+                <ul>
+                    <li>Курсты сатып алған соң, мұғалімнің жеке профилі ашылады.</li>
+                    <li>Қажет болған жағдайда Телеграмдағы мұғаліммен сұрақ-жауап чатына қосылып, сұрақтарға жауап алуға болады.</li>
+                    <li>Сатып алған курстың видеосабақтарын кез-келген уақытта көріп, тапсырмаларды орындай алады.</li>
+                    <li>Курсты аяқтаған соң емтихан тапсырып, сертификат беріледі.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="learn">
+            <h2>Курс барысында сіз:</h2>
+            <div class="learn-blocks">
+                <div class="learn-block">
+                    <div class="img-block">
+                        <img src="~/img/check-icon.png">
+                    </div>
+                    <p>@Model.What1</p>
+                </div>
+                <div class="learn-block">
+                    <div class="img-block">
+                        <img src="~/img/check-icon.png">
+                    </div>
+                </div>
+                <div class="learn-block">
+                    <div class="img-block">
+                        <img src="~/img/check-icon.png">
+                    </div>
+                    <p>@Model.What3</p>
+                </div>
+            </div>
+        </div>
+        <div class="subject">
+            <h2>Курс тақырыптары<span></span><p></p></h2>
+            <ul>
+                @foreach (var v in ViewBag.Videos)
+                {
+                    counter++;
+                    <li style="color:black;">@counter. @v.VideoName</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/visitor.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.buy-btn').click(function (e) {
+            e.preventDefault();
+            $('.modal-screen').css('display', 'flex');
+        })
+        $('.close-mod, .modal-bg').click(function () {
+            $('.modal-screen').css('display', 'none');
+        })
+
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() >= $('#main').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.main-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('#teacher').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.teacher-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('#about').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.about-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('.packages').offset().top - 100) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.packages-nav').addClass('fix-active');
+            }
+        });
+    })
+</script>
