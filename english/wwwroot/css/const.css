@@ -150,12 +150,10 @@ body, html{
     text-decoration: none;
     padding-right: 10px;
 }
-
 .login:hover > span {
     transition: 0.2s;
     color: var(--button);
 }
-
 .login > span, .login > i{
    color: white;
 }
@@ -163,6 +161,22 @@ body, html{
    transition: 0.2s;
    color: var(--button);
 }
+
+.lang-block > a {
+    color: white;
+}
+.fix-header .lang-block > a:last-child {
+    color: var(--backDark) !important;
+}
+.lang-block > a:first-child{
+    margin-right: 4px;
+}
+.act-lang {
+    color: #f8951a !important;
+}
+
+
+
 
 /* ---------MOB-MENU------- */
 .swipe-menu{
