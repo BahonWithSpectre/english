@@ -78,7 +78,12 @@ namespace english.Controllers
         }
 
 
+        public IActionResult Top()
+        {
 
+
+            return View();
+        }
 
         public async Task<IActionResult> Kurs(int? Id)
         {
