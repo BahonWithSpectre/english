@@ -48,7 +48,7 @@
 }
 .main {
    width: 1170px;
-   height: 740px;
+/*   height: 740px;*/
    margin: 0 auto;
    display: flex;
    align-items: center;
@@ -506,31 +506,11 @@
     .course-item, .course-item:nth-child(3n+2) {
         margin-bottom: 25px;
     }
-
-
-    .slick-prev, .slick-next{
-       bottom: 8% !important;
-    }
 }
 @media  (max-width: 992px){
    .about-text {
       width: 60%;
       padding: 25px;
-  }
-
-
-
-  .slick-prev, .slick-next{
-      width: 40px !important;
-      height: 40px !important;
-      bottom: 7% !important;
-   }
-   .slick-prev{
-      right: 110px !important;
-   }
-   .slick-prev:before,
-   .slick-next:before{
-      font-size: 40px !important;
    }
 }
 @media  (max-width: 867px){
@@ -539,7 +519,6 @@
       overflow-y: scroll;
    }
 
-   
     .level-text > h2, .level-text > h2 > span {
         font-size: 20px;
     }
@@ -556,7 +535,6 @@
     .btn-label {
         font-size: 18px;
     }
-
 }
 @media  (max-width: 768px){
    .const-btn{
@@ -636,21 +614,6 @@
     .course-item, .course-item:nth-child(3n+2) {
         margin-bottom: 20px;
     }
-
-    .slick-prev, .slick-next {
-      width: 40px !important;
-      height: 40px !important;
-      bottom: 1% !important;
-   }
-   #results .slick-prev,
-   #results .slick-next {
-      width: 30px !important;
-      height: 30px !important;
-  }
-  #results .slick-prev:before,
-  #results .slick-next:before {
-     font-size: 30px !important;
- }
 }
 
 @media  (max-width: 640px){
@@ -750,8 +713,6 @@
    .count-item{
       width: 30%;
    }
-
-
 }
 @media  (max-width: 530px){
    .main-img{
@@ -785,7 +746,6 @@
     .text-with-icon > span {
         font-size: 15px;
     }
-   
 }
 @media  (max-width: 425px){
    .main-text > p {

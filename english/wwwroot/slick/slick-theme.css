@@ -1,4 +1,4 @@
-@charset 'UTF-8';
+﻿@charset 'UTF-8';
 /* Slider */
 .slick-loading .slick-list
 {
@@ -32,7 +32,7 @@
     line-height: 0;
 
     position: absolute;
-    bottom: 17%;
+    bottom: 5%;
     z-index: 50;
 
     display: block;
@@ -76,38 +76,36 @@
 .slick-prev:before,
 .slick-next:before
 {
-    /* font-family: 'slick'; */
-    font-size: 50px;
+/*     font-family: 'slick'; */
+    font-size: 60px;
     line-height: 1;
 
     /* opacity: .75; */
-    color: white;
-    text-shadow: 0 0 25px var(--font3);
+    color: var(--button);
+/*    text-shadow: 0 0 25px var(--font3);*/
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-#results .slick-prev
-{
-    left: 0;
-    right: auto;
+#results .slick-prev {
+    left: 0 !important;
+    right: auto !important;
 }
-#results .slick-next
-{
-    left: auto;
-    right: 0;
+#results .slick-next {
+    left: auto !important;
+    right: 0 !important;
 }
 #results .slick-prev::before,
 #results .slick-next::before
 {
     font-size: 30px;
     font-family: 'slick';
-    color: var(--backLight);
+    color: var(--backDark);
     text-shadow: none;
 }
 .slick-prev
 {
-    right: 120px;
+    left: 45%;
 }
 [dir='rtl'] .slick-prev
 {
@@ -125,7 +123,7 @@
 
 .slick-next
 {
-    right: 50px;
+    left: 50%;
 }
 [dir='rtl'] .slick-next
 {
@@ -229,4 +227,69 @@
 {
     opacity: .75;
     color: black;
+}
+
+@media (max-width: 1200px) {
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 50px;
+    }
+    .slick-prev, .slick-next{
+       bottom: 8% !important;
+    }
+    .slick-prev {
+        left: 48%;
+    }
+    .slick-next {
+        left: 55%;
+    }
+}
+@media (max-width: 992px) {
+  .slick-prev, .slick-next{
+      width: 40px !important;
+      height: 40px !important;
+      bottom: 3% !important;
+   }
+   .slick-prev:before,
+   .slick-next:before{
+      font-size: 40px !important;
+   }
+    .slick-prev {
+        left: 43%;
+    }
+    .slick-next {
+        left: 48%;
+    }
+}
+@media (max-width: 867px) {
+    .slick-prev, .slick-next {
+        bottom: 0% !important;
+    }
+}
+@media (max-width: 768px) {
+
+    #results .slick-prev,
+    #results .slick-next {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    #results .slick-prev:before,
+    #results .slick-next:before {
+        font-size: 30px !important;
+    }
+    .slick-next {
+        left: 50%;
+    }
+}
+
+@media (max-width: 640px) {
+    .slick-prev {
+        left: 40%;
+    }
+}
+
+@media (max-width: 530px) {
+    .slick-prev {
+        left: 35%;
+    }
 }

@@ -38,12 +38,10 @@
                     <span>Кіру</span>
                     <i class="fa fa-user-o"></i>
                 </a>
-                <a href="#" style="color: #f8951a; border-radius:2px solid white">KZ</a>
-                <a style="color: white">RU</a>
-                @*<select style="color:black;">
-                    <option>KZ</option>
-                    <option>RU</option>
-                </select>*@
+                <span class="lang-block">
+                    <a href="#" class="act-lang">RU</a>
+                    <a >KZ</a>
+                </span>
             </div>
 
 
@@ -78,7 +76,7 @@
                     Ерекше методикамен дайындалған субтитр + қазақша
                     түсіндірмесімен жасалған <span>40 мультфильмді сыйлыққа алыңыз</span>
                 </h2>
-                @*<p class="text-with-icon">
+                <p class="text-with-icon">
                     <i class="fa fa-bell"></i>
                     <span>
                         Ағылшын тілін үйрену бұрын соңды бұлай оңай, ыңғайлы, тез болмаған
@@ -86,7 +84,7 @@
                 </p>
                 <p class="btn-label">
                     Төмендегі батырманы басып, мультфильмдерді тегін алыңыз
-                </p>*@
+                </p>
                 <span href="#" class="const-btn">Мультфильмдерді тегін алу</span>
             </div>
             <div class="level-img">
@@ -102,15 +100,16 @@
             <div class="course-items">
                 @foreach (var c in ViewBag.LifeHack)
                 {
-    <div class="course-item">
-        <div class="course-img">
-            <img src="~/lifehack/@c.PhotoUrl">
-        </div>
-        <div class="course-text">
-            <h2>@c.Title</h2>
-            <a href="/Home/LifeView/@c.Id" class="const-btn">Көру</a>
-        </div>
-    </div>}
+                    <div class="course-item">
+                        <div class="course-img">
+                            <img src="~/lifehack/@c.PhotoUrl">
+                        </div>
+                        <div class="course-text">
+                            <h2>@c.Title</h2>
+                            <a href="/Home/LifeView/@c.Id" class="const-btn">Көру</a>
+                        </div>
+                    </div>
+                }
             </div>
             <a href="~/Home/LifeHack" class="const-btn">Барлық лайфхактер</a>
         </div>
@@ -145,21 +144,22 @@
             <div class="course-items">
                 @foreach (var c in Model)
                 {
-    <div class="course-item">
-        <div class="course-img">
-            <img src="~/kurs/@c.PhotoUrl">
-        </div>
-        <div class="course-text">
-            <h2>@c.Name онлайн курстар</h2>
-            <p>@c.Info</p>
-            <span class="price">
-                <span>@c.Price</span>тг
-            </span>
-            <a href="/Home/Kurs/@c.Id" class="const-btn" style="background-color:#1752a6!important;">Толық ақпарат алу</a>
-        </div>
-    </div>}
+                    <div class="course-item">
+                        <div class="course-img">
+                            <img src="~/kurs/@c.PhotoUrl">
+                        </div>
+                        <div class="course-text">
+                            <h2>@c.Name онлайн курстар</h2>
+                            <p>@c.Info</p>
+                            <span class="price">
+                                <span>@c.Price</span>тг
+                            </span>
+                            <a href="/Home/Kurs/@c.Id" class="const-btn" style="background-color:#1752a6 !important;">Толық ақпарат алу</a>
+                        </div>
+                    </div>
+                }
             </div>
-            <a href="~/Home/AllKurs" class="const-btn" style="        background-color: #dfa104;">Барлық курстар</a>
+            <a href="~/Home/AllKurs" class="const-btn" style=" background-color: #dfa104;">Барлық курстар</a>
         </div>
     </div>
     <div id="about" class="about-wrap">
@@ -274,3 +274,38 @@
             });
         })
     </script>
+
+
+        
+@*<div class="level-wrap">
+    <div class="level const-container">
+        <h2 class="const-h2">Уровни обучения английского языка</h2>
+        <div class="level-items">
+            <div class="level-item">
+                <h3>Beginner</h3>
+                <p>Начальный уровень. Вы раньше не занимались английским языком или знаний почти нет.</p>
+            </div>
+            <div class="level-item">
+                <h3>Beginner</h3>
+                <p>Начальный уровень. Вы раньше не занимались английским языком или знаний почти нет.</p>
+            </div>
+            <div class="level-item">
+                <h3>Beginner</h3>
+                <p>Начальный уровень. Вы раньше не занимались английским языком или знаний почти нет.</p>
+            </div>
+            <div class="level-item">
+                <h3>Beginner</h3>
+                <p>Начальный уровень. Вы раньше не занимались английским языком или знаний почти нет.</p>
+            </div>
+            <div class="level-item">
+                <h3>Upper-Intermediate</h3>
+                <p>Начальный уровень. Вы раньше не занимались английским языком или знаний почти нет.</p>
+            </div>
+            <div class="level-item">
+                <h3>Beginner</h3>
+                <p>Начальный уровень. Вы раньше не занимались английским языком или знаний почти нет.</p>
+            </div>
+        </div>
+        <span href="#" class="const-btn">Улучшить уровень английского</span>
+    </div>
+</div>*@
